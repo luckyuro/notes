@@ -43,7 +43,7 @@ The environment I am using is Macbook Air, OSX 10.11.6, Mactex 2016. Compile fil
            By using this, you may feel there is more space.
         2) How to add github icon on your CV, that's why I want to use fontawesome, there are also a lot other icons included.
             #+BEGIN_SRC latex
-              \extrainfo{\faGithub \href{https://github.com/[你的用户名]}{github.com/[你的用户名]}}
+              \extrainfo{\faGithub \href{https://github.com/[yourUsername]}{github.com/[yourUsername]}}
             #+END_SRC
             You can do the same thing as I did, put it at the same place as phone numbers, It will appear everywhere needed~
 
