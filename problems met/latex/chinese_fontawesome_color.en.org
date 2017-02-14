@@ -1,0 +1,50 @@
+#+TITLE: Use Chinese, fontawesome and custom color in Latex
+#+AUTHOR: Junjun Shi
+#+DATE: <2017-02-14 Tue 23:20>
+#+EMAIL: abbform@gmail.com
+#+LANGUAGE: en
+
+The environment I am using is Macbook Air, OSX 10.11.6, Mactex 2016. Compile file with XeLaTex.
+
+1. How to use Chinese characters under Latex
+    Using the LaTex file from /learnxinyminutes/ directly, the output file will miss the Chinese characters. (actually I just want something to start)
+    #+BEGIN_SRC latex
+    \usepackage[UTF8]{ctex}
+    \usepackage{CJKutf8}
+    #+END_SRC
+    What I used in my document is the former one, the second should work, but I have never tried.
+    Attention: I used the xelatex to compile the file.
+
+2. How to use the fontawesome
+    Under my circumstance, it will throw out the error that unable to load the fontawesome if I use it directly. So after I searched, I need to add the Path of fontawesome manually.
+    #+BEGIN_SRC latex
+    \usepackage{fontspec}
+    \defaultfontfeatures{
+        Path = /usr/local/texlive/2016/texmf-dist/fonts/opentype/public/fontawesome/ }
+    \usepackage{fontawesome}
+    #+END_SRC
+    I am using the MacTex 2016 edition. You can edit the number in the Path, and it should work now.
+
+3. Use custom color
+    When I use LaTex, I could not find some of the color, so I tried to find out use custom colors, and here is a site to find the corresponding color:[[http://latexcolor.com/]]
+    #+BEGIN_SRC latex
+    \usepackage{color}
+    \definecolor{mustard}{rgb}{1.0, 0.86, 0.35}
+    \color{mustard}Mustard
+    #+END_SRC
+    In the example, I defined the mustard color(Not WASABI), once defined, you can use as the default colors.
+
+4. What's more
+    I met the questions when I was writing my CV, the CV modified from the template from ModernCV, so here is some other details:
+        1) When using the template, you may find too many space around the page or the left list may be too narrow for words
+            #+BEGIN_SRC latex
+              \setlength{\hintscolumnwidth}{0.15\textwidth}
+            #+END_SRC
+           By using this, you may feel there is more space.
+        2) How to add github icon on your CV, that's why I want to use fontawesome, there are also a lot other icons included.
+            #+BEGIN_SRC latex
+              \extrainfo{\faGithub \href{https://github.com/[你的用户名]}{github.com/[你的用户名]}}
+            #+END_SRC
+            You can do the same thing as I did, put it at the same place as phone numbers, It will appear everywhere needed~
+
+A little trial of org-mode.

@@ -1,0 +1,49 @@
+#+TITLE: LaTex 中使用中文，fontawesome和自定义颜色
+#+AUTHOR: 施君君
+#+DATE:<2017-02-14 Tue 23:20>
+#+EMAIL: abbform@gmail.com
+#+LANGUAGE: zh
+
+我在这里是使用的Macbook Air,系统是10.11.6,MacTex 2016。使用XeLaTex进行编译。
+1. 下如何在LaTex中使用中文
+    在learnxinyminutes中的LaTex直接编译会缺失中文字符。(其实是随便写一点东西占个位置。)
+    #+BEGIN_SRC latex
+    \usepackage[UTF8]{ctex}
+    \usepackage{CJKutf8}
+    #+END_SRC
+    我是使用的上面的一种方式来支持中文字符的，第二种理论上来说可以但是我没有试过。
+    注意:使用的是xelatex进行编译
+
+2. 使用fontawesome
+    在我的系统环境下尝试使用fontawesome的时候提示找不到字体文件，根据网上的资料，手动添加Path然后加载fontawesome
+    #+BEGIN_SRC latex
+    \usepackage{fontspec}
+    \defaultfontfeatures{
+        Path = /usr/local/texlive/2016/texmf-dist/fonts/opentype/public/fontawesome/ }
+    \usepackage{fontawesome}
+    #+END_SRC
+    我使用的是2016版的MacTex，可以根据安装的版本直接更改当中的数字应该就可以用了。
+
+3. 自定义颜色
+    我在使用的时候，有颜色找不到，所以使用自定义的颜色，在这里放一下颜色对应的代码的地址:[[http://latexcolor.com/]]
+    #+BEGIN_SRC latex
+    \usepackage{color}
+    \definecolor{mustard}{rgb}{1.0, 0.86, 0.35}
+    \color{mustard}Mustard
+    #+END_SRC
+    在示例中我是定义了mustard芥末色--黄芥末，然后使用这种颜色，定义之后，使用起来与原生的颜色没什么区别。
+
+4. 再说一点
+    我是在写简历的时候遇到的这些问题，使用的modernCV的模板，所以再来简单说一下其他相关的小细节:
+        1) 文档有时候感觉周围空太多，比如你分两列的时候，左边太窄了
+            #+BEGIN_SRC latex
+              \setlength{\hintscolumnwidth}{0.15\textwidth}
+            #+END_SRC
+           这样的话可以利用更多的空间。
+        2) 在简历上添加Github小图标，我就是因为这个所以才用了fontawesome那个包，里面有现成的许多图标
+            #+BEGIN_SRC latex
+              \extrainfo{\faGithub \href{https://github.com/[你的用户名]}{github.com/[你的用户名]}}
+            #+END_SRC
+          可以像我这样，将信息和电话号码什么的放在一起，那该有的地方就都会有了
+
+写完了，去写英文版了，不知效果怎么样
